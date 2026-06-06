@@ -82,6 +82,17 @@ const PRODUCTS = [
         description: "Ganador del prestigioso As d'Or, Trio es un juego rápido y divertido que pondrá a prueba tu memoria y agudeza visual.",
         imagePath: "assets/trio.jpg",
         visualType: "board-game"
+    },
+    {
+        id: "prod-08",
+        name: "Polilla Tramposa",
+        category: "sellados",
+        price: 35000,
+        stock: 10,
+        badge: "Clásicos",
+        description: "Normalmente en los juegos no se permite hacer trampas. ¡Pero en este juego sí! Se trata de ser el primer jugador en deshacerse de todas las cartas y por eso hace falta ser ingeniosos a la hora de descartar y muy hábiles haciendo trampas.",
+        imagePath: "assets/polilla_tramposa.jpg",
+        visualType: "board-game"
     }
 ];
 
