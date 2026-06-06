@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanbu TCG - Pokémon TCG y Juegos de Mesa Tradicionales</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bienvenido a Nanbu TCG, la tienda definitiva de cartas Pokémon TCG, colecciones premium y juegos de mesa en Argentina. Sumérgete en nuestra mística atmósfera japonesa, participa de sorteos exclusivos para clientes y únete a nuestros torneos presenciales.">
+    <meta name="keywords" content="Nanbu TCG, Pokémon TCG, cartas pokemon, sobres pokemon, elite trainer box, juegos de mesa, polilla tramposa, trio, torneos pokemon argentina, cartas singles, cartas foil">
+    <meta name="author" content="Nanbu TCG">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.nanbutcg.com/">
+    <meta property="og:title" content="Nanbu TCG - Pokémon TCG y Juegos de Mesa">
+    <meta property="og:description" content="Encuentra las mejores cartas coleccionables de Pokémon, combos con descuento y vive la experiencia del TCG con un estilo tradicional japonés.">
+    <meta property="og:image" content="assets/banner.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Nanbu TCG - Pokémon TCG y Juegos de Mesa">
+    <meta property="twitter:description" content="Encuentra las mejores cartas coleccionables de Pokémon, combos con descuento y vive la experiencia del TCG con un estilo tradicional japonés.">
+    <meta property="twitter:image" content="assets/banner.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Structured Data (JSON-LD) for Toy/Hobby Store -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ToyStore",
+      "name": "Nanbu TCG",
+      "description": "Tienda especializada de cartas Pokémon TCG y juegos de mesa con temática tradicional japonesa.",
+      "image": "assets/logo_round.jpg",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. de los Torii 1080",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "11:00",
+          "closes": "20:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/nanbu_tcg",
+        "https://www.facebook.com/nanbutcg"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Falling Cherry Blossoms Background Canvas -->
+    <canvas id="sakura-canvas"></canvas>
+
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#inicio" class="logo-area">
+                <img src="assets/logo_round.jpg" alt="Logo de Nanbu TCG" class="nav-logo" id="nav-logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">南 南部 TCG</span>
+                    <span class="logo-subtitle">NANBU TCG</span>
+                </div>
+            </a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav class="navbar" id="navbar">
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link active" id="nav-link-inicio">Inicio</a></li>
+                    <li><a href="#catalogo" class="nav-link" id="nav-link-catalogo">Catálogo</a></li>
+                    <li><a href="#contacto" class="nav-link" id="nav-link-contacto">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Shopping Cart Trigger Button -->
+            <button class="cart-trigger" id="cart-trigger" aria-label="Ver carrito de compras">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">カードショップ</div>
+                    <h1 class="hero-title">南 NANBU TCG</h1>
+                    <p class="hero-subtitle">El templo del TCG y los mejores juegos de mesa.</p>
+                    <div class="torii-separator">
+                        <span class="torii-line"></span>
+                        <i class="fa-solid fa-torii-gate torii-icon"></i>
+                        <span class="torii-line"></span>
+                    </div>
+                    <p class="hero-description">
+                        Explora una cuidada selección de boosters, cajas selladas, singles foil y juegos de mesa clásicos.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#catalogo" class="btn btn-primary" id="btn-hero-catalogo">Ver Catálogo</a>
+                        <a href="#contacto" class="btn btn-secondary" id="btn-hero-contacto-link">Contacto</a>
+                    </div>
+                </div>
+                
+                <div class="hero-logo-container">
+                    <div class="stamp-glow"></div>
+                    <img src="assets/logo_square.png" alt="Logo Tradicional de Nanbu TCG" class="hero-logo-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features / Value Banner -->
+        <section class="value-banner">
+            <div class="value-container">
+                <div class="value-item">
+                    <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Productos 100% Originales</h3>
+                    <p>Cartas oficiales en español e inglés directamente de distribuidores autorizados.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3>Atención Personalizada</h3>
+                    <p>Te asesoramos por cualquiera de nuestras redes sociales.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3>Envíos a Todo el País</h3>
+                    <p>Recibe tus cartas de forma segura a través de Andreani o Correo Argentino</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Section -->
+        <section id="catalogo" class="section-container catalogo-section">
+            <div class="section-header">
+                <span class="section-japanese">カタログ</span>
+                <h2 class="section-title">Catálogo TCG</h2>
+                <div class="torii-divider"></div>
+                <p class="section-description">Usa los filtros para encontrar tu próximo sobre, colección especial o juego de mesa favorito.</p>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="catalog-search" placeholder="Buscar producto (ej. ETB, Booster, Charizard)..." aria-label="Buscar productos">
+                </div>
+                <div class="category-filters" id="category-filters">
+                    <button class="filter-btn active" data-category="todos" id="filter-todos">Todos</button>
+                    <button class="filter-btn" data-category="sellados" id="filter-sellados">Sellados</button>
+                    <button class="filter-btn" data-category="sobres" id="filter-sobres">Sobres</button>
+                    <button class="filter-btn" data-category="singles" id="filter-singles">Singles Foil</button>
+                    <button class="filter-btn" data-category="accesorios" id="filter-accesorios">Accesorios</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Product Grid -->
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be dynamically loaded via JS -->
+                <div class="loader-placeholder">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i> Cargando inventario del templo...
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Intermedio (Estética Wabi-Sabi) -->
+        <section class="quote-banner">
+            <div class="quote-overlay"></div>
+            <div class="quote-container">
+                <p class="japanese-quote">「温故知新」</p>
+                <blockquote class="quote-text">
+                    "Descubrir nuevas verdades a través del estudio del pasado." En Nanbu TCG honramos la tradición del coleccionismo y la estrategia competitiva.
+                </blockquote>
+                <cite class="quote-author">— Filosofía Nanbu</cite>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="section-container contacto-section">
+            <div class="section-header">
+                <span class="section-japanese">お問い合わせ</span>
+                <h2 class="section-title">Ubicación y Contacto</h2>
+                <div class="torii-divider"></div>
+                <p class="section-description">Cualquier duda o consulta comunicate con nosotros por cualquiera de nuestras redes sociales</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <!-- Store Details -->
+                <div class="contact-info-panel">
+                    <div class="contact-detail-item">
+                        <div class="detail-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <div class="detail-content">
+                            <h4>Ubicación</h4>
+                            <p>Rosario, Santa Fe, Argentina</p>
+                        </div>
+                    </div>
+
+
+                    <div class="contact-detail-item">
+                        <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="detail-content">
+                            <h4>Correo Electrónico</h4>
+                            <p>rosariotcg@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <div class="detail-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="detail-content">
+                            <h4>WhatsApp</h4>
+                            <p>3413060358<br>3416832979</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="social-links">
+                        <a href="https://instagram.com/nanbu.tcg" target="_blank" aria-label="Instagram de Nanbu TCG" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61590483892705" target="_blank" aria-label="Facebook de Nanbu TCG" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://wa.me/5493413060358" target="_blank" aria-label="WhatsApp de Nanbu TCG" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Interactive Map / Store Photo Showcase -->
+                <div class="map-showcase-panel">
+                    <div class="map-showcase-container">
+                        <div class="map-overlay-info">
+                            <i class="fa-solid fa-location-crosshairs map-indicator-icon"></i>
+                            <div class="map-indicator-text">
+                                <strong>Templo Nanbu TCG</strong>
+                                <span>Esperamos tu pedido</span>
+                            </div>
+                        </div>
+                        <img src="assets/banner.jpg" alt="Vista del Templo Nanbu TCG" class="store-map-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo_round.jpg" alt="Logo redondo de Nanbu TCG" class="footer-logo">
+                <div class="footer-brand-text">
+                    <h3>南 NANBU TCG</h3>
+                    <p>La senda del coleccionista y del gran entrenador.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-disclaimer">
+                <h4>Aviso Legal</h4>
+                <p>
+                    Pokémon y sus marcas asociadas son propiedad de Nintendo, Creatures Inc. y Game Freak. Este es un sitio web de demostración para la tienda de TCG Nanbu. Precios y stock simulados.
+                </p>
+                <p class="copyright">&copy; 2026 Nanbu TCG. Todos los derechos reservados. Diseñado bajo la armonía del Wabi-Sabi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer (Slides out from right) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="cart-header">
+            <h3 id="cart-title"><i class="fa-solid fa-cart-shopping"></i> Tu Carrito</h3>
+            <button class="cart-close" id="cart-close" aria-label="Cerrar carrito"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <!-- Cart Contents -->
+        <div class="cart-body" id="cart-body">
+            <!-- Dynamically populated cart items or empty message -->
+            <div class="cart-empty" id="cart-empty">
+                <i class="fa-solid fa-box-open empty-icon"></i>
+                <p>Tu carrito está vacío. ¡El templo te espera con grandes cartas!</p>
+                <a href="#catalogo" class="btn btn-secondary btn-sm" id="btn-cart-continue">Explorar Catálogo</a>
+            </div>
+            <div class="cart-items-list" id="cart-items-list">
+                <!-- Cart items load here -->
+            </div>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="cart-footer" id="cart-footer">
+            <div class="cart-totals">
+                <span class="total-label">Total estimado:</span>
+                <span class="total-price" id="cart-total-price">$0 ARS</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary btn-full" id="btn-checkout-simulado">Finalizar Compra (Simulación)</button>
+                <button class="btn btn-primary btn-full" id="btn-checkout-whatsapp"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal (For Customer Details) -->
+    <div class="modal-overlay" id="checkout-modal-overlay"></div>
+    <div class="modal" id="checkout-modal" role="dialog" aria-modal="true">
+        <button class="modal-close" id="checkout-modal-close" aria-label="Cerrar ventana"><i class="fa-solid fa-xmark"></i></button>
+        
+        <!-- Modal Step 1: Form details -->
+        <div id="checkout-step-form">
+            <h3 class="modal-title">Completa tus datos</h3>
+            <p class="modal-subtitle">Necesitamos tu información básica para registrar el pedido.</p>
+            <form id="checkout-details-form" class="modal-form">
+                <div class="form-group">
+                    <label for="checkout-nombre">Nombre Completo</label>
+                    <input type="text" id="checkout-nombre" required placeholder="Juan Pérez" aria-label="Nombre completo para envío">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-email">Correo Electrónico</label>
+                    <input type="email" id="checkout-email" required placeholder="juan@ejemplo.com" aria-label="Correo electrónico para factura">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-telefono">Número de Celular / WhatsApp</label>
+                    <input type="tel" id="checkout-telefono" required placeholder="Ej: +54 9 11 1234-5678" aria-label="Celular para coordinar entrega">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-envio">Método de Entrega</label>
+                    <select id="checkout-envio" aria-label="Método de entrega">
+                        <option value="retiro">Retiro por el local (Av. de los Torii 1080)</option>
+                        <option value="envio-correo">Envío por Correo Argentino</option>
+                        <option value="envio-moto">Envío express en moto (CABA/GBA)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" id="btn-confirm-checkout">Registrar Pedido</button>
+            </form>
+        </div>
+
+        <!-- Modal Step 2: Loader -->
+        <div id="checkout-step-loader" class="modal-loader-step hidden">
+            <div class="loader-japanese">ご注文処理中</div>
+            <i class="fa-solid fa-spinner fa-spin loader-big-icon"></i>
+            <h3>Procesando pedido...</h3>
+            <p>Conectando con el Templo Nanbu...</p>
+        </div>
+
+        <!-- Modal Step 3: Success -->
+        <div id="checkout-step-success" class="modal-success-step hidden">
+            <div class="success-mark"><i class="fa-solid fa-circle-check"></i></div>
+            <h3 class="success-title">¡Pedido Registrado con Éxito!</h3>
+            <div class="order-receipt-box">
+                <p>Tu número de orden es:</p>
+                <div class="order-code-display" id="generated-order-code">NANBU-XXXXX</div>
+                <p class="order-code-tip">Guarda este código de orden para coordinar tu pago y entrega.</p>
+            </div>
+            <div class="order-details-summary">
+                <p><strong>Cliente:</strong> <span id="summary-name">Juan</span></p>
+                <p><strong>Total:</strong> <span id="summary-total">$0 ARS</span></p>
+                <p><strong>Entrega:</strong> <span id="summary-delivery">Retiro</span></p>
+            </div>
+            <p class="success-info-text">Se ha enviado un correo con el detalle de tu compra. Si elegiste pagar o retirar, nos pondremos en contacto a la brevedad.</p>
+            <button class="btn btn-primary btn-full" id="btn-close-success">Volver a la Tienda</button>
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="index.js"></script>
+</body>
+</html>

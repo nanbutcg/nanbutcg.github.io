@@ -1,0 +1,23 @@
+{
+  "name": "nanbu-tcg",
+  "version": "1.0.0",
+  "description": "Sitio web para la tienda de Pokémon TCG Nanbu TCG con estética tradicional japonesa Wabi-Sabi.",
+  "scripts": {
+    "dev": "vite --host --port 3000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "pokemon",
+    "tcg",
+    "wabi-sabi",
+    "japanese",
+    "store",
+    "shop"
+  ],
+  "author": "Nanbu TCG",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}

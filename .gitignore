@@ -1,0 +1,16 @@
+# Dependencias de Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Archivos del sistema y de editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
