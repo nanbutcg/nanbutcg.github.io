@@ -71,6 +71,17 @@ const PRODUCTS = [
         imagePath: "assets/binder_greninja.jpg",
         hoverImagePath: "assets/binder_charizard.jpg",
         visualType: "collection-red"
+    },
+    {
+        id: "prod-07",
+        name: "Trio",
+        category: "sellados",
+        price: 30000,
+        stock: 10,
+        badge: "Clásicos",
+        description: "Ganador del prestigioso As d'Or, Trio es un juego rápido y divertido que pondrá a prueba tu memoria y agudeza visual.",
+        imagePath: "assets/trio.jpg",
+        visualType: "board-game"
     }
 ];
 
