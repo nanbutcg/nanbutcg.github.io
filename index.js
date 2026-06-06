@@ -107,21 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnCartContinue = document.getElementById('btn-cart-continue');
 
     // Checkout Modals
-    const btnCheckoutSimulado = document.getElementById('btn-checkout-simulado');
     const btnCheckoutWhatsapp = document.getElementById('btn-checkout-whatsapp');
-    const checkoutModalOverlay = document.getElementById('checkout-modal-overlay');
-    const checkoutModal = document.getElementById('checkout-modal');
-    const checkoutModalClose = document.getElementById('checkout-modal-close');
-    const checkoutDetailsForm = document.getElementById('checkout-details-form');
-    
-    const checkoutStepForm = document.getElementById('checkout-step-form');
-    const checkoutStepLoader = document.getElementById('checkout-step-loader');
-    const checkoutStepSuccess = document.getElementById('checkout-step-success');
-    const generatedOrderCode = document.getElementById('generated-order-code');
-    const btnCloseSuccess = document.getElementById('btn-close-success');
-    const summaryName = document.getElementById('summary-name');
-    const summaryTotal = document.getElementById('summary-total');
-    const summaryDelivery = document.getElementById('summary-delivery');
 
     // --- SAKURA BACKGROUND ANIMATION ---
     initSakuraCanvas();
@@ -219,81 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnCartContinue) btnCartContinue.addEventListener('click', closeCart);
 
     // Cart Checkout Actions
-    if (btnCheckoutSimulado) {
-        btnCheckoutSimulado.addEventListener('click', () => {
-            if (cart.length === 0) return;
-            closeCart();
-            openCheckoutModal();
-        });
-    }
-
     if (btnCheckoutWhatsapp) {
         btnCheckoutWhatsapp.addEventListener('click', () => {
             if (cart.length === 0) return;
             enviarPedidoWhatsApp();
         });
     }
-
-    // Checkout Modal Dialog Control
-    const openCheckoutModal = () => {
-        checkoutModalOverlay.classList.add('active');
-        checkoutModal.classList.add('active');
-        checkoutStepForm.classList.remove('hidden');
-        checkoutStepLoader.classList.add('hidden');
-        checkoutStepSuccess.classList.add('hidden');
-    };
-
-    const closeCheckoutModal = () => {
-        checkoutModalOverlay.classList.remove('active');
-        checkoutModal.classList.remove('active');
-    };
-
-    if (checkoutModalClose) checkoutModalClose.addEventListener('click', closeCheckoutModal);
-    if (checkoutModalOverlay) checkoutModalOverlay.addEventListener('click', closeCheckoutModal);
-
-    // Checkout Details Form Submit (Simulated Server Post)
-    if (checkoutDetailsForm) {
-        checkoutDetailsForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form values
-            const nombre = document.getElementById('checkout-nombre').value;
-            const email = document.getElementById('checkout-email').value;
-            const metodoEnvio = document.getElementById('checkout-envio');
-            const envioTexto = metodoEnvio.options[metodoEnvio.selectedIndex].text;
-            
-            // Step 1 -> Step 2 (Loader)
-            checkoutStepForm.classList.add('hidden');
-            checkoutStepLoader.classList.remove('hidden');
-            
-            // Generate simulated unique order code
-            const orderNum = Math.floor(10000 + Math.random() * 90000);
-            const orderCode = `NANBU-${orderNum}`;
-            
-            // Store this order in localStorage to allow validation in Giveaways
-            localStorage.setItem('nanbu_last_order', orderCode);
-            
-            // Simulate 2s server delay
-            setTimeout(() => {
-                checkoutStepLoader.classList.add('hidden');
-                checkoutStepSuccess.classList.remove('hidden');
-                
-                // Populate summary card
-                generatedOrderCode.textContent = orderCode;
-                summaryName.textContent = nombre;
-                summaryTotal.textContent = `$${formatPrice(getCartTotal())} ARS`;
-                summaryDelivery.textContent = envioTexto.split('(')[0].trim();
-                
-                // Clear the Cart after checkout
-                cart = [];
-                saveCart();
-                updateCartUI();
-            }, 2000);
-        });
-    }
-
-    // Close success screen button
-    if (btnCloseSuccess) btnCloseSuccess.addEventListener('click', closeCheckoutModal);
     // (Manejadores de sorteos eliminados)
 });
 

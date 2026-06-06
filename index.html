@@ -323,72 +323,10 @@
                 <span class="total-price" id="cart-total-price">$0 ARS</span>
             </div>
             <div class="cart-actions">
-                <button class="btn btn-secondary btn-full" id="btn-checkout-simulado">Finalizar Compra (Simulación)</button>
                 <button class="btn btn-primary btn-full" id="btn-checkout-whatsapp"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
             </div>
         </div>
     </aside>
-
-    <!-- Checkout Modal (For Customer Details) -->
-    <div class="modal-overlay" id="checkout-modal-overlay"></div>
-    <div class="modal" id="checkout-modal" role="dialog" aria-modal="true">
-        <button class="modal-close" id="checkout-modal-close" aria-label="Cerrar ventana"><i class="fa-solid fa-xmark"></i></button>
-        
-        <!-- Modal Step 1: Form details -->
-        <div id="checkout-step-form">
-            <h3 class="modal-title">Completa tus datos</h3>
-            <p class="modal-subtitle">Necesitamos tu información básica para registrar el pedido.</p>
-            <form id="checkout-details-form" class="modal-form">
-                <div class="form-group">
-                    <label for="checkout-nombre">Nombre Completo</label>
-                    <input type="text" id="checkout-nombre" required placeholder="Juan Pérez" aria-label="Nombre completo para envío">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-email">Correo Electrónico</label>
-                    <input type="email" id="checkout-email" required placeholder="juan@ejemplo.com" aria-label="Correo electrónico para factura">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-telefono">Número de Celular / WhatsApp</label>
-                    <input type="tel" id="checkout-telefono" required placeholder="Ej: +54 9 11 1234-5678" aria-label="Celular para coordinar entrega">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-envio">Método de Entrega</label>
-                    <select id="checkout-envio" aria-label="Método de entrega">
-                        <option value="retiro">Retiro por el local (Av. de los Torii 1080)</option>
-                        <option value="envio-correo">Envío por Correo Argentino</option>
-                        <option value="envio-moto">Envío express en moto (CABA/GBA)</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full" id="btn-confirm-checkout">Registrar Pedido</button>
-            </form>
-        </div>
-
-        <!-- Modal Step 2: Loader -->
-        <div id="checkout-step-loader" class="modal-loader-step hidden">
-            <div class="loader-japanese">ご注文処理中</div>
-            <i class="fa-solid fa-spinner fa-spin loader-big-icon"></i>
-            <h3>Procesando pedido...</h3>
-            <p>Conectando con el Templo Nanbu...</p>
-        </div>
-
-        <!-- Modal Step 3: Success -->
-        <div id="checkout-step-success" class="modal-success-step hidden">
-            <div class="success-mark"><i class="fa-solid fa-circle-check"></i></div>
-            <h3 class="success-title">¡Pedido Registrado con Éxito!</h3>
-            <div class="order-receipt-box">
-                <p>Tu número de orden es:</p>
-                <div class="order-code-display" id="generated-order-code">NANBU-XXXXX</div>
-                <p class="order-code-tip">Guarda este código de orden para coordinar tu pago y entrega.</p>
-            </div>
-            <div class="order-details-summary">
-                <p><strong>Cliente:</strong> <span id="summary-name">Juan</span></p>
-                <p><strong>Total:</strong> <span id="summary-total">$0 ARS</span></p>
-                <p><strong>Entrega:</strong> <span id="summary-delivery">Retiro</span></p>
-            </div>
-            <p class="success-info-text">Se ha enviado un correo con el detalle de tu compra. Si elegiste pagar o retirar, nos pondremos en contacto a la brevedad.</p>
-            <button class="btn btn-primary btn-full" id="btn-close-success">Volver a la Tienda</button>
-        </div>
-    </div>
 
     <!-- Script File -->
     <script src="index.js"></script>
