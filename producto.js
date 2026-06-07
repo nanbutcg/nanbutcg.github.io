@@ -24,12 +24,9 @@ window.renderProductDetail = function() {
         selectedQty = 1;
     }
 
-    // Indicador de Stock
-    let stockIndicator = `<span class="product-stock stock-instock" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-check"></i> En Stock (${product.stock} disponibles)</span>`;
+    let stockIndicator = `<span class="product-stock stock-instock" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-check"></i> Stock disponible: ${product.stock - cartQty}</span>`;
     if (product.stock === 0) {
         stockIndicator = `<span class="product-stock stock-out" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-xmark"></i> Agotado</span>`;
-    } else if (product.stock - cartQty <= 2 && product.stock - cartQty > 0) {
-        stockIndicator = `<span class="product-stock stock-instock" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-check"></i> Stock disponible: ${product.stock - cartQty}</span>`;
     } else if (product.stock - cartQty <= 0) {
         stockIndicator = `<span class="product-stock stock-out" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-xmark"></i> Sin stock adicional disponible (ya está en tu carrito)</span>`;
     }
@@ -152,11 +149,9 @@ function renderRelatedProducts() {
         const cartQty = inCart ? inCart.quantity : 0;
         const hasStock = prod.stock > cartQty;
 
-        let stockIndicator = `<span class="product-stock stock-instock"><i class="fa-solid fa-circle-check"></i> En Stock</span>`;
+        let stockIndicator = `<span class="product-stock stock-instock"><i class="fa-solid fa-circle-check"></i> En stock</span>`;
         if (prod.stock === 0) {
             stockIndicator = `<span class="product-stock stock-out"><i class="fa-solid fa-circle-xmark"></i> Agotado</span>`;
-        } else if (prod.stock - cartQty <= 2 && prod.stock - cartQty > 0) {
-            stockIndicator = `<span class="product-stock stock-instock"><i class="fa-solid fa-circle-check"></i> Stock disponible: ${prod.stock - cartQty}</span>`;
         } else if (prod.stock - cartQty <= 0) {
             stockIndicator = `<span class="product-stock stock-out"><i class="fa-solid fa-circle-xmark"></i> Sin stock disponible</span>`;
         }
