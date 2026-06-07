@@ -95,7 +95,7 @@ function renderCatalog() {
         if (prod.stock === 0) {
             stockIndicator = `<span class="product-stock stock-out"><i class="fa-solid fa-circle-xmark"></i> Agotado</span>`;
         } else if (prod.stock - cartQty <= 2 && prod.stock - cartQty > 0) {
-            stockIndicator = `<span class="product-stock stock-low"><i class="fa-solid fa-circle-exclamation"></i> ¡Últimas ${prod.stock - cartQty} un.!</span>`;
+            stockIndicator = `<span class="product-stock stock-low"><i class="fa-solid fa-circle-exclamation"></i> Stock disponible: ${prod.stock - cartQty}</span>`;
         } else if (prod.stock - cartQty <= 0) {
             stockIndicator = `<span class="product-stock stock-out"><i class="fa-solid fa-circle-xmark"></i> Sin stock disponible</span>`;
         }

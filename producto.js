@@ -29,7 +29,7 @@ window.renderProductDetail = function() {
     if (product.stock === 0) {
         stockIndicator = `<span class="product-stock stock-out" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-xmark"></i> Agotado</span>`;
     } else if (product.stock - cartQty <= 2 && product.stock - cartQty > 0) {
-        stockIndicator = `<span class="product-stock stock-low" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-exclamation"></i> ¡Últimas ${product.stock - cartQty} unidades disponibles!</span>`;
+        stockIndicator = `<span class="product-stock stock-low" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-exclamation"></i> Stock disponible: ${product.stock - cartQty}</span>`;
     } else if (product.stock - cartQty <= 0) {
         stockIndicator = `<span class="product-stock stock-out" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-xmark"></i> Sin stock adicional disponible (ya está en tu carrito)</span>`;
     }
@@ -156,7 +156,7 @@ function renderRelatedProducts() {
         if (prod.stock === 0) {
             stockIndicator = `<span class="product-stock stock-out"><i class="fa-solid fa-circle-xmark"></i> Agotado</span>`;
         } else if (prod.stock - cartQty <= 2 && prod.stock - cartQty > 0) {
-            stockIndicator = `<span class="product-stock stock-low"><i class="fa-solid fa-circle-exclamation"></i> ¡Últimas ${prod.stock - cartQty} un.!</span>`;
+            stockIndicator = `<span class="product-stock stock-low"><i class="fa-solid fa-circle-exclamation"></i> Stock disponible: ${prod.stock - cartQty}</span>`;
         } else if (prod.stock - cartQty <= 0) {
             stockIndicator = `<span class="product-stock stock-out"><i class="fa-solid fa-circle-xmark"></i> Sin stock disponible</span>`;
         }
