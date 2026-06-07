@@ -5,6 +5,24 @@
 let product = null;
 let selectedQty = 1;
 
+// Cambiar imagen principal en la galería de detalles
+window.setDetailGalleryImage = function(src, btn) {
+    const mainImg = document.getElementById('main-detail-img');
+    if (!mainImg) return;
+    
+    mainImg.style.opacity = '0';
+    mainImg.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        mainImg.src = src;
+        mainImg.style.opacity = '1';
+        mainImg.style.transform = 'scale(1)';
+    }, 150);
+
+    const thumbnails = document.querySelectorAll('.gallery-thumb-btn');
+    thumbnails.forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+};
+
 // Hacer renderProductDetail accesible globalmente para actualizarlo cuando cambie el carrito
 window.renderProductDetail = function() {
     const container = document.getElementById('product-detail-container');
@@ -35,9 +53,30 @@ window.renderProductDetail = function() {
     const disablePlus = selectedQty >= maxAvailable || maxAvailable <= 0;
     const disableAdd = maxAvailable <= 0 || product.stock === 0;
 
-    const mediaHtml = product.imagePath ? `
-        <img src="${product.imagePath}" alt="${product.name}" class="product-detail-img">
-    ` : drawVisualTCG(product.visualType, product.name);
+    let mediaHtml = '';
+    if (product.imagePath) {
+        if (product.hoverImagePath) {
+            mediaHtml = `
+                <div class="product-gallery">
+                    <div class="main-gallery-view">
+                        <img id="main-detail-img" src="${product.imagePath}" alt="${product.name}">
+                    </div>
+                    <div class="gallery-thumbnails">
+                        <button onclick="setDetailGalleryImage('${product.imagePath}', this)" class="gallery-thumb-btn active" aria-label="Ver imagen 1">
+                            <img src="${product.imagePath}" alt="Imagen 1">
+                        </button>
+                        <button onclick="setDetailGalleryImage('${product.hoverImagePath}', this)" class="gallery-thumb-btn" aria-label="Ver imagen 2">
+                            <img src="${product.hoverImagePath}" alt="Imagen 2">
+                        </button>
+                    </div>
+                </div>
+            `;
+        } else {
+            mediaHtml = `<img src="${product.imagePath}" alt="${product.name}" class="product-detail-img">`;
+        }
+    } else {
+        mediaHtml = drawVisualTCG(product.visualType, product.name);
+    }
 
     container.innerHTML = `
         <div class="product-detail-media">
