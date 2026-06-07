@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto - Nanbu TCG</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ver detalles del producto en Nanbu TCG. Sobres, Elite Trainer Boxes y juegos de mesa tradicionales con la armonía del Wabi-Sabi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Falling Cherry Blossoms Background Canvas -->
+    <canvas id="sakura-canvas"></canvas>
+
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html#inicio" class="logo-area">
+                <img src="assets/logo_round.jpg" alt="Logo de Nanbu TCG" class="nav-logo" id="nav-logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">南 南部 TCG</span>
+                    <span class="logo-subtitle">NANBU TCG</span>
+                </div>
+            </a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav class="navbar" id="navbar">
+                <ul class="nav-menu">
+                    <li><a href="index.html#inicio" class="nav-link" id="nav-link-inicio">Inicio</a></li>
+                    <li><a href="index.html#catalogo" class="nav-link active" id="nav-link-catalogo">Catálogo</a></li>
+                    <li><a href="index.html#contacto" class="nav-link" id="nav-link-contacto">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Shopping Cart Trigger Button -->
+            <button class="cart-trigger" id="cart-trigger" aria-label="Ver carrito de compras">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <section class="section-container product-detail-section">
+            <a href="index.html#catalogo" class="back-to-catalog">
+                <i class="fa-solid fa-chevron-left"></i> Volver al Catálogo
+            </a>
+
+            <!-- Contenedor dinámico del detalle -->
+            <div class="product-detail-container" id="product-detail-container">
+                <div class="loader-placeholder">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i> Invocando detalles del producto...
+                </div>
+            </div>
+
+            <!-- Sección de Recomendaciones -->
+            <section class="related-products-section" style="padding-top: 4rem; border-top: 1px dashed rgba(205, 162, 80, 0.15); margin-top: 4rem;">
+                <div class="section-header" style="margin-bottom: 3rem;">
+                    <span class="section-japanese">おすすめ</span>
+                    <h2 class="section-title" style="font-size: 1.8rem;">Otros del Templo</h2>
+                    <div class="torii-divider"></div>
+                </div>
+                <div class="product-grid" id="related-grid">
+                    <!-- Related products will load here -->
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo_round.jpg" alt="Logo redondo de Nanbu TCG" class="footer-logo">
+                <div class="footer-brand-text">
+                    <h3>南 NANBU TCG</h3>
+                    <p>La senda del coleccionista y del gran entrenador.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#catalogo">Catálogo</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-disclaimer">
+                <h4>Aviso Legal</h4>
+                <p>
+                    Pokémon y sus marcas asociadas son propiedad de Nintendo, Creatures Inc. y Game Freak. Este es un sitio web de demostración para la tienda de TCG Nanbu. Precios y stock simulados.
+                </p>
+                <p class="copyright">&copy; 2026 Nanbu TCG. Todos los derechos reservados. Diseñado bajo la armonía del Wabi-Sabi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer (Slides out from right) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="cart-header">
+            <h3 id="cart-title"><i class="fa-solid fa-cart-shopping"></i> Tu Carrito</h3>
+            <button class="cart-close" id="cart-close" aria-label="Cerrar carrito"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <!-- Cart Contents -->
+        <div class="cart-body" id="cart-body">
+            <div class="cart-empty" id="cart-empty">
+                <i class="fa-solid fa-box-open empty-icon"></i>
+                <p>Tu carrito está vacío. ¡El templo te espera con grandes cartas!</p>
+                <a href="index.html#catalogo" class="btn btn-secondary btn-sm" id="btn-cart-continue">Explorar Catálogo</a>
+            </div>
+            <div class="cart-items-list" id="cart-items-list">
+                <!-- Cart items load here -->
+            </div>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="cart-footer" id="cart-footer">
+            <div class="cart-totals">
+                <span class="total-label">Total estimado:</span>
+                <span class="total-price" id="cart-total-price">$0 ARS</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-primary btn-full" id="btn-checkout-whatsapp"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Script Files -->
+    <script src="products.js"></script>
+    <script src="common.js"></script>
+    <script src="producto.js"></script>
+</body>
+</html>
