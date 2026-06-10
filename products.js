@@ -30,7 +30,7 @@ const PRODUCTS = [
         name: "Chaos Rising Booster Pack",
         category: "sobres",
         price: 13500,
-        stock: 18,
+        stock: 17,
         badge: "Pokémon",
         description: "Cada sobre de refuerzo (Booster Pack) contiene 10 cartas oficiales de Pokémon TCG y 1 Energía Básica. ¡Expande tu colección con Chaos Rising!",
         imagePath: "assets/booster_pack_chaos_rising.jpg",
